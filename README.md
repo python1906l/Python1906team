@@ -1,2 +1,2 @@
 # Python1906team
-Learn
+王晓同完成了 注册 选择功能
