@@ -3,6 +3,7 @@
 #from 取钱 import ×
 #from 存钱 import ×
 import csv
+from login import denglu
 flog=False
 def xuanze():
     print('1.注册2.登录3.存钱4.取钱5.退出')
