@@ -1,5 +1,5 @@
 import xuanze
-
+import csv
 
 def denglu():
     print('-----用户登录------')
@@ -12,7 +12,7 @@ def denglu():
         for user in users:
             uname = user[0]
             pwd = user[1]
-            money = int(user[2])
+            money = int(user[3])
             # print(uname, pwd)
             # 进行比较判断
             if username == uname and password == pwd:
@@ -22,3 +22,4 @@ def denglu():
                 print('输入错误！')
 
 
+denglu()
