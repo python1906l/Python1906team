@@ -26,10 +26,10 @@ def register():
                             if username == uname:
                                 print('此用户已注册！')
                                 return
-                with open(r'lib.csv', mode='a', newline='') as wstream:
-                    writer_csv = csv.writer(wstream)
-                    user = [username, password, 0]
-                    writer_csv.writerow(user)
+                            with open(r'lib.csv', mode='a', newline='') as wstream:
+                                writer_csv = csv.writer(wstream)
+                                user = [username, password, 0]
+                                writer_csv.writerow(user)
 
             except:
                 print('注册失败')
