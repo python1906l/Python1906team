@@ -1,10 +1,11 @@
+from digit import 注册, 登录, 存钱, 取钱
 from zhuce import *
 from login import denglu
 from quqian import *
 from cunqian import *
 import csv
 
-flog = False
+
 
 
 def xuanze():
@@ -13,21 +14,20 @@ def xuanze():
         choice = int(input("输入选项序号："))
         global flog
 
-        if choice == 1:
+        if choice == 注册:
 
             register()
 
-        elif choice == 2:
+        elif choice == 登录:
             denglu()
-            flog = True
-            return flog
-        elif choice == 3:
-            if flog:
+
+        elif choice == 存钱:
+            if denglu():
                 cunqian()
             else:
                 print('未登录')
-        elif choice == 4:
-            if flog:
+        elif choice ==取钱:
+            if denglu():
                 qu()
             else:
                 print('未登录')
