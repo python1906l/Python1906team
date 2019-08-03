@@ -1,27 +1,31 @@
 import xuanze
-import csv
+
 
 def denglu():
     print('-----用户登录------')
     username = input('用户名:')
     password = input('密码:')
+    import pymysql
+    conn = pymysql.connect(host='49.232.42.221', port=3306, user='root', password='123456', charset='utf8',
+                           database='bank')
+    curse = conn.cursor()
+    try:
+        result = curse.execute('select username,password,money from inf where username={} and password={};'.format(username,password))
+        print('用户信息：用户名：{}密码：{}余额：{}'.format(username,password,result[2]))
+
+
+
+    except Exception as e:
+        print('登录失败', e)
+        conn.rollback()
+    else:
+        print('登陆成功')
+        return True
 
     # 读取文件
-    with open(r'lib.csv', mode='r') as rstream:
-        users = rstream.readlines()
-        print('users',users)
-        for user in users:
-            uname = user[0]
-            pwd = user[1]
-            money = user[-1]
-            print('money',money)
-            # print(uname, pwd)
-            # 进行比较判断
-            if username == uname and password == pwd:
-                print('用户登录成功,余额：{}'.format(money))
-                break
-            else:
-                print('输入错误！')
+
+
+
 
 
 if __name__ == '__main__':
